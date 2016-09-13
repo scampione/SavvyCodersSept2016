@@ -1,4 +1,4 @@
-<style media="screen">
+<style media="screen" >
     html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -28,23 +28,125 @@ time, mark, audio, video {
         padding: 5px;
     }
 
+    header {
+        border-bottom: 1px solid #f0f0f0;
+    }
+
     .list {
         color:#55aaff;
     }
-    #title {
-        font-family: "Helvetica", sans-serif;
+
+
+    nav.topNav a{
+        color:#a0a0a0;
+        font-size: 1.25em;
+
     }
-    #header {
-        font-size: 2.5rem;
-        font-family: "Helvetica", sans-serif;
+
+    nav.topNav a:hover {
+
+        color: cornflowerblue;
+    }
+
+    nav.topNav a.active {
+        display: none;
+    }
+
+    nav.bottomNav a {
+        color:#a0a0a0;
+        font-family:
+    }
+
+    nav.bottomNav a:hover {
+        color:cornflowerblue;
+    }
+
+    nav a {
+        text-decoration: none;
+        font-family: "Helvetica", Arial, sans-serif;
+        font-weight: lighter;
+        padding-right: 10px;
+    }
+
+    nav {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .mainBody {
+        border-radius: 10px;
+        background-color: #f0f0f0;
+        padding:10px;
+        height: 45%;
+
+    }
+
+    .blogBody {
+        border-radius: 10px;
+        background-color: #aabbcc;
+        font-size: 1.05rem;
+        padding: 10px;
+        font-family: "times new roman";
+        color:#515151;
+    }
+
+    .mediaBody {
+        border-radius: 10px;
+        background-color: wheat;
+        font-size: 1.05rem;
+        padding: 10px;
+        font-family: "times new roman";
+        color:#515151;
+
+    }
+
+    .projectBody {
+        border-radius: 10px;
+        background-color: lightslategray;
+        font-size: 1.05rem;
+        padding: 10px;
+        font-family: sans-serif;
+        color:#ffffff;
+
+    }
+    /*#title {
+        font-size: 3.0rem;
+        font-family: "Helevetica", Arial, sans-serif;
         color: #99c0bb;
+        display: inline-block;
+        text-decoration: none;
+        width: 90%;
+
+    }*/
+
+    #title {
+        display: inline-block;
+        width: 90%;
     }
+
+    div#title a {
+        font-size: 3.0rem;
+        font-family: "Helevetica", Arial, sans-serif;
+        color: #99c0bb;
+        /*display: inline-block;*/
+        text-decoration: none;
+        /*width: 90%;*/
+    }
+
+
+
     #splash {
-        width: 10em;
-        height: auto;
+        width: 5em;
+        height: 5em;
+        border-radius: 100%;
+        overflow: hidden;
+        display: inline-block;
     }
     #imgSplash {
         width:100%;
+
     }
+
+
 
 </style>
