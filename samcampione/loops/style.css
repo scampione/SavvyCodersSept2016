@@ -1,0 +1,143 @@
+.page-container {
+    margin: 10px;
+    width: 90vw;
+    height: 90vh;
+    border: solid 1px cornflowerblue;
+    /*height: auto;*/
+    /*border: solid 1px #c0c0c0;
+    border-radius: 10px;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.app-container {
+    width: 50%;
+    height: auto;
+    margin-left: 1%;
+    display: flex;
+    flex-wrap: nowrap;
+    /*border: solid 1px red;*/
+}
+
+.app-ui {
+    width: 75%;
+}
+
+.app-controls
+{
+    font-family: Arial;
+    font-size: .75rem;
+    color: #a0a0a0;
+    align-self: center;
+}
+
+.content {
+    width: 90%;
+    height: auto;
+    background-color: cornsilk;
+    border: solid 1px #c0c0c0;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.column-headers {
+    width: 90%;
+    background-color: rgb(133, 187, 236);
+    color: #606060;
+    border-bottom: solid 1px #a0a0a0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-family: Arial;
+    font-size: 1.1rem;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+    .column-headers {
+        font-size: .8rem;
+    }
+}
+
+#page-title {
+    position: relative;
+    top: -10px;
+    left: 5px;
+    padding: 0 3px;
+    width:120px;
+    font-family: Arial;
+    background-color: white;
+    color: cornflowerblue;
+}
+
+/*EvenOdd*/
+#outputDiv1 {
+    height: 200px;
+    /*Wraps when % is sufficiently large*/
+    /*width: 70%;*/
+
+
+    /*Wraps when view port is  sufficiently small*/
+    width: 200px;
+    color: white;
+    background-color: rgb(152, 203, 222);
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-family: Arial;
+    font-size: .75rem;
+    display: flex;
+    flex-direction: row;
+}
+
+#outputDiv1 li {
+    padding: 8px;
+    color: #515151;
+    border-bottom: solid 1px #c0c0c0;
+}
+
+#outputDiv1 ul {
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+}
+
+#outputDiv1 li:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+#outputDiv1 li:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+/*Fizzbuzz*/
+#outputDiv2 {
+    height: 200px;
+    /*width: 30%;*/
+    width: 200px;
+    border: solid 1px rgb(212, 212, 212);
+    padding: 20px;
+    overflow: scroll;
+    color: #a0a0a0;
+}
+
+
+.fizz-buzz {
+    color: cornflowerblue;
+}
+
+.fizz {
+    color: rgb(90, 187, 103)
+}
+
+.buzz {
+    color: rgb(235, 102, 102)
+}

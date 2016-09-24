@@ -1,0 +1,16 @@
+
+
+#output {
+    height:50px;
+    width:30%;
+    color:white;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+}
+
+
+.test {
+    color:cornflowerblue;
+    background-color: wheat;
+    visibility: hidden;
+}
