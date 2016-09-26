@@ -1,5 +1,6 @@
 .page-container {
     margin: 10px;
+    padding: 10px;
     width: 90vw;
     height: 90vh;
     border: solid 1px cornflowerblue;
@@ -91,7 +92,7 @@
     border-bottom-right-radius: 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -129,6 +130,7 @@
 }
 
 div[class^="output"] {
+    position: relative;
     height: 100px;
     width: 200px;
     padding: 20px;
@@ -140,14 +142,46 @@ div[class^="output"] {
 
 }
 
-div[class^="win"] {
+/*div[class^="output"]:before {
+    content: ;
+    font-family: FontAwesome;
+    font-size: 2.0rem;
+    color: rgb(71, 172, 0);
+
+}*/
+
+div[class^="output"]:before {
+    content: "";
+}
+
+.output-user.Before:before {
+    content: "\f00c";
+    font-family: FontAwesome;
+    font-size: 2.0rem;
+    color: rgb(71, 172, 0);
+
+}
+
+.output-computer.Before:before {
+    content: "\f00c";
+    font-family: FontAwesome;
+    font-size: 2.0rem;
+    color: rgb(71, 172, 0);
+
+}
+
+
+
+/*div[class^="win"] {
     color: rgb(71, 172, 0);
     position: relative;
     display: none;
-}
+}*/
+
 
 div[class$="tie"] {
     color: red;
+    font-size: 2.5rem;
     position: relative;
     display: none;
 }

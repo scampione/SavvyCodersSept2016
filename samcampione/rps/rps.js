@@ -8,6 +8,7 @@ var userWins
 var actionType = "Go"
 var randomMax = 3
 
+// document.styleSheets[1].addRule('div[class^="output"]:before', 'content: attr(data-before);');
 var game = {
 
   //possible choices for each player
@@ -99,15 +100,19 @@ var userOption = function(optionNumber) {
   game.players.user.currentOptionIndex = game.choices[optionNumber].index
   targetDiv.innerHTML = game.players.user.currentOptionName
 
-  $('.win-computer, .win-user, .output-tie').css({
+  $('.output-computer, .output-user').removeClass('Before')
+ 
+  $('.tie').css({
     'display': 'none'
   })
+
 
 }
 
 var setComputerDiv = function(theText) {
   targetDiv = document.querySelector('.output-computer')
   targetDiv.innerHTML = theText
+
 }
 
 var getComputerOption = function() {
@@ -134,32 +139,68 @@ var gameAction = function(action) {
     userWins = game.choices[game.players.user.currentOptionIndex].beatsIndex === game.players.computer.currentOptionIndex
     userTies = game.players.user.currentOptionIndex === game.players.computer.currentOptionIndex
 
+    // switch (true) {
+    //   case userTies:
+    //     $('.output-tie').css({
+    //       'display': 'inline'
+    //     })
+    //     $('.win-computer, .win-user').css({
+    //       'display': 'none'
+    //     })
+    //     break;
+    //   case userWins:
+    //     $('.win-computer, .output-tie').css({
+    //       'display': 'none'
+    //     })
+    //     $('.win-user').css({
+    //       'display': 'inline'
+    //     })
+    //     break;
+    //
+    //   default:
+    //     $('.win-user, .output-tie').css({
+    //       'display': 'none'
+    //     })
+    //     $('.win-computer').css({
+    //       'display': 'inline'
+    //     })
+    // }
     switch (true) {
       case userTies:
-        $('.output-tie').css({
-          'display': 'inline'
-        })
-        $('.win-computer, .win-user').css({
-          'display': 'none'
-        })
+        $('.tie').css({
+            'display': 'inline'
+          })
+          // $('.output-computer:before, .output-user:before').attr({
+          //   'data-before': ''
+          // })
+        $('.output-user').removeClass('Before')
+        $('.output-computer').removeClass('Before')
         break;
+
       case userWins:
-        $('.win-computer, .output-tie').css({
+        // $('.output-computer:before').attr({
+        //   'data-before': ''
+        // })
+        $('.output-computer').removeClass('Before')
+        $('.tie').css({
           'display': 'none'
         })
-        $('.win-user').css({
-          'display': 'inline'
-        })
+        $('.output-user').addClass('Before')
+
+
+        // $('.output-user:before').attr({
+        //   'data-before': '\f00c'
+        // })
+
         break;
 
       default:
-        $('.win-user, .output-tie').css({
+        // (i.e. "computer wins")
+        $('.output-user').removeClass('Before')
+        $('.tie').css({
           'display': 'none'
         })
-        $('.win-computer').css({
-          'display': 'inline'
-        })
-
+        $('.output-computer').addClass('Before')
     }
 
 
@@ -169,6 +210,7 @@ var gameAction = function(action) {
 
   }
   // loadButtons()
+
 
 }
 
