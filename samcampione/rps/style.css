@@ -11,7 +11,7 @@
 }
 
 .app-container {
-    width: 50%;
+    width: 75%;
     height: auto;
     margin-left: 1%;
     display: flex;
@@ -23,13 +23,62 @@
     width: 75%;
 }
 
-.app-controls
-{
-    font-family: Arial;
+.app-controls {
+    width: 25%;
     font-size: .75rem;
     color: #a0a0a0;
     align-self: center;
+    /*display: inline;*/
 }
+
+.rps-radio-set {
+    font-size: 2em;
+    font-family: 'Nunito';
+    color: #515151;
+    position: relative;
+    width: 124px;
+    margin-bottom: 10px;
+}
+
+.rps-button {
+    font-size: 2em;
+    border: 0px;
+}
+
+.goButton1 {
+    color: blue;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+}
+
+.goButton {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-style: none;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.goButton:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+.goButton:focus {
+    border-style: none;
+    outline: none;
+}
+
+.goButton:active {
+    background: #3498db ;
+}
+
 
 .content {
     width: 90%;
@@ -72,78 +121,19 @@
     top: -10px;
     left: 5px;
     padding: 0 3px;
-    width:120px;
+    width: 120px;
     font-family: Arial;
     background-color: white;
     color: cornflowerblue;
 }
 
-/*EvenOdd*/
-#outputDiv1 {
-    height: 200px;
-    /*Wraps when % is sufficiently large*/
-    /*width: 70%;*/
-
-
-    /*Wraps when view port is  sufficiently small*/
-    width: 200px;
-    color: white;
-    background-color: rgb(152, 203, 222);
-    padding: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
-    font-family: Arial;
-    font-size: .75rem;
-    display: flex;
-    flex-direction: row;
-}
-
-#outputDiv1 li {
-    padding: 8px;
-    color: #515151;
-    border-bottom: solid 1px #c0c0c0;
-}
-
-#outputDiv1 ul {
-    overflow: scroll;
-    height: 100%;
-    width: 100%;
-}
-
-#outputDiv1 li:nth-child(odd) {
-    background-color: #f0f0f0;
-}
-
-#outputDiv1 li:nth-child(even) {
-    background-color: #e0e0e0;
-}
-
-/*Fizzbuzz*/
-#outputDiv2 {
+.output-computer {
     height: 200px;
     /*width: 30%;*/
     width: 200px;
-    background-color: white;
-    border: solid 1px rgb(212, 212, 212);
+    /*background-color: whitergb(213, 167, 167);*/
+    /*border: solid 1px rgb(212, 212, 212);*/
     padding: 20px;
-    overflow: scroll;
+    /*overflow: scroll;*/
     color: #a0a0a0;
-}
-
-
-li.fizz-buzz {
-    color: cornflowerblue;
-}
-
-li.fizz {
-    color: rgb(90, 187, 103)
-}
-
-li.buzz {
-    color: rgb(235, 102, 102)
-}
-
-.fizz-button {
-    font-size: 2em;
-    border: 0px;
 }

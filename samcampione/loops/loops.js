@@ -37,6 +37,8 @@ var fizzBuzzNew = function(filterType) {
   i = 1
 
 
+
+
   while (i < stop) {
     switch (true) {
       case (i % 3 === 0 && i % 5 === 0) && (filterType === "FizzBuzz" || filterType === "All"):
@@ -66,25 +68,46 @@ var fizzBuzzNew = function(filterType) {
 //
 //Radio buttons to filter the FizzBuzz list
 //
-var loadButtons = function()
+var loadRadioButtons = function()
 {
     targetDiv = document.querySelector('.app-controls')
-    targetHtml='<form class="fizz-buttons">'
+    targetHtml='<form class="fizz-radio-set">'
 
     for (i = 0; i < displayTypes.length; i++)
     {
         var tmp=displayTypes[i]
-        targetHtml+='<input '
+        targetHtml+='<input class="fizz-button" '
         +' type="radio"'
-        +' name="filterType"'
+        +' name="filterTypes"'
         +' onClick="filterFizzBuzz(this.value)"'
         +' value="'+tmp+'">'+tmp+"<br>"
     }
     targetHtml+='</form>'
-    targetDiv.innerHTML=targetHtml
+    targetDiv.innerHTML+=targetHtml
 }
 
 //
+//CheckBox set
+//
+var loadCheckBoxSet = function ()
+{
+    targetDiv = document.querySelector('.app-controls')
+    targetHtml='<form class="fizz-checkbox-set">'
+
+    for (i = 0; i < displayTypes.length; i++)
+    {
+        var tmp=displayTypes[i]
+        targetHtml+='<input class="fizz-button" '
+        +' type="checkbox"'
+        +' name="filterTypes"'
+        +' onClick="filterFizzBuzz(this.value)"'
+        +' value="'+tmp+'">'+tmp+"<br>"
+    }
+    targetHtml+='</form>'
+    targetDiv.innerHTML+=targetHtml
+}
+
+
 //Filter the FizzBuzz list
 //
 var filterFizzBuzz = function(filterType) {
@@ -93,7 +116,9 @@ var filterFizzBuzz = function(filterType) {
 
 
 
-loadButtons()
+loadRadioButtons()
+
+// loadCheckBoxSet()
 
 evenOdd()
 
