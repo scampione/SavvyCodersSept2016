@@ -21,6 +21,7 @@
 
 .app-ui {
     width: 75%;
+    /*border: solid 1px red;*/
 }
 
 .app-controls {
@@ -90,19 +91,19 @@
     border-bottom-right-radius: 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 .column-headers {
     width: 90%;
-    background-color: rgb(133, 187, 236);
-    color: #606060;
+    background-color: #3498db;
+    color: #ffffff;
     border-bottom: solid 1px #a0a0a0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     font-family: Arial;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     padding: 8px;
     display: flex;
     flex-direction: row;
@@ -127,13 +128,26 @@
     color: cornflowerblue;
 }
 
-.output-computer {
-    height: 200px;
-    /*width: 30%;*/
+div[class^="output"] {
+    height: 100px;
     width: 200px;
-    /*background-color: whitergb(213, 167, 167);*/
-    /*border: solid 1px rgb(212, 212, 212);*/
     padding: 20px;
-    /*overflow: scroll;*/
-    color: #a0a0a0;
+    text-align: center;
+    color: #717171;
+    font-size: 2.5rem;
+    font-family: 'Nunito';
+    /*border: solid 1px red;*/
+
+}
+
+div[class^="win"] {
+    color: rgb(71, 172, 0);
+    position: relative;
+    display: none;
+}
+
+div[class$="tie"] {
+    color: red;
+    position: relative;
+    display: none;
 }

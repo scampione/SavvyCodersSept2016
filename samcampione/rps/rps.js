@@ -3,22 +3,26 @@ var targetHtml
 var filterType
 var theName
 var theIndex
+var computerChoice
+var userWins
+var actionType = "Go"
+var randomMax = 3
 
 var game = {
 
   //possible choices for each player
   choices: {
-    rock: {
+    1: {
       name: "Rock",
       index: 1,
       beatsIndex: 3
     },
-    paper: {
+    2: {
       name: "Paper",
       index: 2,
       beatsIndex: 1
     },
-    scissors: {
+    3: {
       name: "Scissors",
       index: 3,
       beatsIndex: 2
@@ -48,51 +52,126 @@ var numberOfOptions = Object.keys(game.choices).length
 
 
 //
-//Radio buttons for choice of R/P/S
+//Radio buttons for choice of R/P/S and 'Go/Reset' button
 //
-var loadRadioButtons = function() {
+var loadButtons = function() {
   targetDiv = document.querySelector('.app-controls')
+  targetDiv.innerHTML = ""
   targetHtml = '<form class="rps-radio-set">'
 
 
-  for (i = 0; i < numberOfOptions; i++) {
+  for (i = 1; i < numberOfOptions + 1; i++) {
     // theIndex = Object.keys(game.choices)[i]
-    // theName = game.choices[theIndex].name
-    theName=Object.keys(game.choices)[i]
+    // theName=Object.keys(game.choices)[i]
+    theIndex = game.choices[i].index
+    theName = game.choices[i].name
     targetHtml += '<input class="rps-buttons" ' +
       ' type="radio"' +
       ' name="rpsTypes"' +
       ' onClick="userOption(this.value)"' +
-      ' value="' + theName + '">' + theName + "<br>"
+      ' value="' + theIndex + '">' + theName + "<br>"
   }
+
+
   targetHtml += '</form>'
   targetHtml += '<input ' +
     ' type="button" ' +
     ' class="goButton" ' +
-    ' onClick="compareOptions()" ' +
-    ' value="Go!">'
+    ' onClick="gameAction(actionType)" ' +
+    ' value="' + actionType + '">'
   targetDiv.innerHTML += targetHtml
 
-}
-
-var userOption = function(optionName) {
-  targetDiv = document.querySelector('.output-player')
-  targetHtml = optionName
-  // targetDiv.innerHTML = optionName + ' ' + game.choices[optionName].index
-  game.players.user.currentOptionName=game.choices[optionName].name
-  game.players.user.currentOptionIndex=game.choices[optionName].index
-  targetDiv.innerHTML=game.players.user.currentOptionName+" "+game.players.user.currentOptionIndex
 
 }
 
-var computerOption = function() {
-    var thisNum=Math.floor(Math.random()*3+1)
-    game.players.computer.currentOptionIndex=thisNum
-    // game.players.computer.currentOptionName=game[]
-}
-var compareOptions = function() {
-    targetDiv=document.querySelector('.output-player')
+var loadActionButton = function() {
 
 }
 
-loadRadioButtons()
+var userOption = function(optionNumber) {
+  //
+  // user made a selection, so start a new round (i.e. clear the 'computer' selection)
+  //
+  setComputerDiv("")
+  targetDiv = document.querySelector('.output-user')
+  targetHtml = optionNumber
+  game.players.user.currentOptionName = game.choices[optionNumber].name
+  game.players.user.currentOptionIndex = game.choices[optionNumber].index
+  targetDiv.innerHTML = game.players.user.currentOptionName
+
+  $('.win-computer, .win-user, .output-tie').css({
+    'display': 'none'
+  })
+
+}
+
+var setComputerDiv = function(theText) {
+  targetDiv = document.querySelector('.output-computer')
+  targetDiv.innerHTML = theText
+}
+
+var getComputerOption = function() {
+  //
+  // force a new choice for the computer
+  //
+  while (!computerChoice || (computerChoice === game.players.computer.currentOptionIndex)) {
+    computerChoice = Math.floor(Math.random() * randomMax + 1)
+  }
+
+  game.players.computer.currentOptionIndex = computerChoice
+  game.players.computer.currentOptionName = game.choices[computerChoice].name
+
+  // show the computer's choice
+  setComputerDiv(game.choices[computerChoice].name)
+
+}
+
+var gameAction = function(action) {
+  if (action = "Go") {
+    getComputerOption()
+      // actionType = "Reset"
+
+    userWins = game.choices[game.players.user.currentOptionIndex].beatsIndex === game.players.computer.currentOptionIndex
+    userTies = game.players.user.currentOptionIndex === game.players.computer.currentOptionIndex
+
+    switch (true) {
+      case userTies:
+        $('.output-tie').css({
+          'display': 'inline'
+        })
+        $('.win-computer, .win-user').css({
+          'display': 'none'
+        })
+        break;
+      case userWins:
+        $('.win-computer, .output-tie').css({
+          'display': 'none'
+        })
+        $('.win-user').css({
+          'display': 'inline'
+        })
+        break;
+
+      default:
+        $('.win-user, .output-tie').css({
+          'display': 'none'
+        })
+        $('.win-computer').css({
+          'display': 'inline'
+        })
+
+    }
+
+
+  } else {
+
+    actionType = "Go"
+
+  }
+  // loadButtons()
+
+}
+
+
+
+loadButtons()
